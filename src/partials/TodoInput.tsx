@@ -13,13 +13,14 @@ const TodoInput = () => {
   }
 
   return (
-    <div className="flex justify-center gap-4 py-4">
+    <div className="flex flex-col md:lg:flex-row items-center justify-center gap-4 py-4 my-4">
             <input type="text"
                    value={value}
                    onChange={(e) => setValue(e.target.value)}
                    placeholder="Enter your todo"
-                   className="w-5/6 px-4 py-2 border border-gray-300 rounded-md" />
-            <button disabled={value? false : true} onClick={handleClick} className="w-1/6 px-4 py-2 text-white bg-indigo-500 hover:bg-indigo-800 rounded-md">Add</button>
+                   className="w-full md:lg:w-5/6 px-4 py-2 border border-gray-300 rounded-md" />
+            <button disabled={value? false : true} onClick={handleClick} className=" w-full md:lg:w-1/6 px-4 py-2 text-white bg-indigo-500 hover:bg-indigo-800 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
+              Add</button>
     </div>
   )
 }

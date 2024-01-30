@@ -30,7 +30,7 @@ const Todos = ({todos}:TodosProps) => {
   // }
 
   return (
-    <div className="w-full text-center bg-indigo-100 p-8 min-h-1/2">
+    <div className="w-full text-center bg-indigo-100 py-16 px-2 md:lg:px-8 min-h-1/2 rounded-md">
         <div className="w-5/6 mx-auto">
           
           <h1 className='text-4xl font-bold text-slate-800'>Todo List</h1>

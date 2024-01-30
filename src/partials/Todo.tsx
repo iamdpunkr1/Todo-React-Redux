@@ -21,7 +21,7 @@ const Todo = ({todo}: TodoProps) => {
   }
 
   return (
-    <div className="flex justify-between items-center px-8 items-center bg-indigo-500 text-white py-3 rounded-md">
+    <div className="flex justify-between items-center px-4 md:px-6 lg:px-8 items-center bg-indigo-500 text-white py-3 rounded-md">
                 {isEdit ?
                 <input type="text"
                        value={value}
@@ -36,7 +36,7 @@ const Todo = ({todo}: TodoProps) => {
                 {isEdit ?
                     // Save Button
                     <button onClick={handleChange}
-                    className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md">
+                    className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
                      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
@@ -54,7 +54,7 @@ const Todo = ({todo}: TodoProps) => {
                     :
                     //Edit Button
                     <button onClick={() => {setIsEdit(!isEdit); setValue(todo.value)}}
-                    className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md">
+                    className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                        <g id="SVGRepo_bgCarrier" strokeWidth={0} />
                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,7 +92,7 @@ const Todo = ({todo}: TodoProps) => {
                     }
 
                     <button onClick={() => dispatch(deleteTodo(todo.id))}
-                     className="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md">
+                     className="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" strokeWidth={0} />
                         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
