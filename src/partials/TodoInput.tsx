@@ -1,16 +1,14 @@
 import { useState } from "react"
-import { TodosTypes } from "../components/Todos"
+import { addTodo } from "../redux/todo/todoActions"
+import { useDispatch } from "react-redux"
 
-type TodoInputProps = {
-  handleAddTodo: (val: TodosTypes) => void
-}
 
-const TodoInput = ({handleAddTodo}: TodoInputProps) => {
+const TodoInput = () => {
   const [value, setValue] = useState('')
-
+  const dispatch = useDispatch()
   const handleClick = () => {
-    console.log(value)
-    handleAddTodo({id:Date.now(),value})
+    // console.log(value)
+    dispatch(addTodo({id:Date.now(),value}))
     setValue('')
   }
 

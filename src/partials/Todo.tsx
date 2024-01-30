@@ -1,17 +1,22 @@
 import { useState } from "react"
 import { TodosTypes } from "../components/Todos"
+import { editTodo, deleteTodo } from "../redux/todo/todoActions"
+import { useDispatch } from "react-redux"
 
 type TodoProps = {
   todo: TodosTypes,
-  handleDeleteTodo: (id: number) => void,
-  handleEditTodo: (id: number, val:string) => void
+  // handleDeleteTodo: (id: number) => void,
+  // handleEditTodo: (id: number, val:string) => void
 }
-const Todo = ({todo, handleDeleteTodo, handleEditTodo}: TodoProps) => {
+
+const Todo = ({todo}: TodoProps) => {
   const [isEdit, setIsEdit] = useState<Boolean>(false)
   const [value, setValue] = useState<string>('')
+  const dispatch = useDispatch();
 
   const handleChange = () => {
-    handleEditTodo (todo.id, value)
+    // handleEditTodo (todo.id, value)
+    dispatch (editTodo ({id: todo.id, value}))
     setIsEdit(!isEdit)
   }
 
@@ -86,7 +91,7 @@ const Todo = ({todo, handleDeleteTodo, handleEditTodo}: TodoProps) => {
                    </button>
                     }
 
-                    <button onClick={() => handleDeleteTodo(todo.id)}
+                    <button onClick={() => dispatch(deleteTodo(todo.id))}
                      className="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md">
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" strokeWidth={0} />

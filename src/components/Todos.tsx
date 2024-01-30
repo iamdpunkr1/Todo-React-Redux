@@ -16,10 +16,10 @@ type TodosProps = {
 const Todos = ({todos, dispatch}:TodosProps) => {
 
 
-  const handleAddTodo = (val: TodosTypes) => {
-    // setTodos(prev => [...prev, {id: val.id, value: val.value}])
-    dispatch(addTodo(val))
-  }
+  // const handleAddTodo = (val: TodosTypes) => {
+  //   // setTodos(prev => [...prev, {id: val.id, value: val.value}])
+  //   dispatch(addTodo(val))
+  // }
 
   const handleDeleteTodo = (id:number) => {
     // setTodos(prev => prev.filter(todo => todo.id !== id))
@@ -35,12 +35,13 @@ const Todos = ({todos, dispatch}:TodosProps) => {
         <div className="w-5/6 mx-auto">
           
           <h1 className='text-4xl font-bold text-slate-800'>Todo List</h1>
-          <TodoInput handleAddTodo={handleAddTodo} />
+          <TodoInput />
           <div className="flex mx-auto flex-col gap-2">
             
             {todos.map((todo) => (
-              <Todo handleDeleteTodo={handleDeleteTodo}
-                    handleEditTodo={handleEditTodo}
+              <Todo 
+                    // handleDeleteTodo={handleDeleteTodo}
+                    // handleEditTodo={handleEditTodo}
                     todo={todo}
                     key={todo.id} />
             ))}
