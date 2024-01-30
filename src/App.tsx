@@ -6,8 +6,7 @@ function App() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen max-w-[1200px] mx-auto">
-      
+    <div className="flex flex-col justify-center items-center h-screen max-w-[900px] mx-auto">
       <Todos />
     </div>
   )
