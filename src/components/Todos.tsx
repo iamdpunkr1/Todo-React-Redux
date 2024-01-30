@@ -1,7 +1,7 @@
 import TodoInput from "../partials/TodoInput"
 import Todo from "../partials/Todo"
 import { connect } from "react-redux"
-import { addTodo, deleteTodo, editTodo } from "../redux/todo/todoActions"
+// import { addTodo, deleteTodo, editTodo } from "../redux/todo/todoActions"
 
 export type TodosTypes = {
   id: number,
@@ -10,10 +10,9 @@ export type TodosTypes = {
 
 type TodosProps = {
   todos: TodosTypes[],
-  dispatch: any
 }
 
-const Todos = ({todos, dispatch}:TodosProps) => {
+const Todos = ({todos}:TodosProps) => {
 
 
   // const handleAddTodo = (val: TodosTypes) => {
@@ -21,14 +20,14 @@ const Todos = ({todos, dispatch}:TodosProps) => {
   //   dispatch(addTodo(val))
   // }
 
-  const handleDeleteTodo = (id:number) => {
+  // const handleDeleteTodo = (id:number) => {
     // setTodos(prev => prev.filter(todo => todo.id !== id))
-    dispatch(deleteTodo (id))
-  }
+    // dispatch(deleteTodo (id))
+  // }
 
-  const handleEditTodo = (id:number, value:string) => {
-    dispatch(editTodo({id, value}))
-  }
+  // const handleEditTodo = (id:number, value:string) => {
+  //   dispatch(editTodo({id, value}))
+  // }
 
   return (
     <div className="w-full text-center bg-indigo-100 p-8 min-h-1/2">
