@@ -9,7 +9,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="flex flex-col justify-center items-center h-screen max-w-[900px] mx-auto">
+      <div className="flex flex-col justify-center items-center h-screen max-w-[740px] mx-auto">
         <Todos />
       </div>
     </Provider>
