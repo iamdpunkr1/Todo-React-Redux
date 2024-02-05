@@ -26,8 +26,12 @@ const TodoInput = () => {
                    onKeyDown={handleKeyPress}
                    placeholder="Enter your todo"
                    className="w-full md:lg:w-5/6 px-4 py-2 border border-gray-300 rounded-md" />
-            <button disabled={value? false : true} onClick={handleClick} className=" w-full md:lg:w-1/6 px-4 py-2 text-white bg-indigo-500 hover:bg-indigo-800 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
-              Add</button>
+            <button
+             disabled={value? false : true}
+             onClick={handleClick}
+             className=" w-full md:lg:w-1/6 px-4 py-2 text-white bg-indigo-500 hover:bg-indigo-800 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
+              Add
+            </button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { TodosTypes } from "../components/Todos"
 import { editTodo, deleteTodo } from "../redux/todo/todoActions"
 import { useDispatch } from "react-redux"
+import { Tooltip } from "react-tooltip"
 
 type TodoProps = {
   todo: TodosTypes,
@@ -35,7 +36,7 @@ const Todo = ({todo}: TodoProps) => {
                 <div className="flex gap-2">
                 {isEdit ?
                     // Save Button
-                    <button onClick={handleChange}
+                    <button data-tooltip-id="my-tooltip" data-tooltip-content="Save Todo" onClick={handleChange}
                     className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -51,9 +52,10 @@ const Todo = ({todo}: TodoProps) => {
                      </g>
                       </svg> 
                    </button>
+                   
                     :
                     //Edit Button
-                    <button onClick={() => {setIsEdit(!isEdit); setValue(todo.value)}}
+                    <button data-tooltip-id="my-tooltip" data-tooltip-content="Edit Todo" onClick={() => {setIsEdit(!isEdit); setValue(todo.value)}}
                     className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                        <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -91,7 +93,8 @@ const Todo = ({todo}: TodoProps) => {
                    </button>
                     }
 
-                    <button onClick={() => dispatch(deleteTodo(todo.id))}
+                    {/* Delete Button */}
+                    <button data-tooltip-id="my-tooltip" data-tooltip-content="Delete Todo" onClick={() => dispatch(deleteTodo(todo.id))}
                      className="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -137,6 +140,8 @@ const Todo = ({todo}: TodoProps) => {
                       </svg>
                     </button>
                 </div>
+                
+                <Tooltip  id="my-tooltip" variant="light" />
     </div>
   )
 }
