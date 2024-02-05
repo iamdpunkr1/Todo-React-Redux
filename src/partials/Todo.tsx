@@ -16,7 +16,7 @@ const Todo = ({todo}: TodoProps) => {
 
   const handleChange = () => {
     // handleEditTodo (todo.id, value)
-    dispatch (editTodo ({id: todo.id, value}))
+    dispatch (editTodo ({id: todo.id, value, completed: todo.completed}))
     setIsEdit(!isEdit)
   }
 

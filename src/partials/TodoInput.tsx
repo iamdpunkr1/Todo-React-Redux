@@ -8,7 +8,7 @@ const TodoInput = () => {
   const dispatch = useDispatch()
   const handleClick = () => {
     // console.log(value)
-    dispatch(addTodo({id:Date.now(),value}))
+    dispatch(addTodo({id:Date.now(),value, completed:false}))
     setValue('')
   }
 

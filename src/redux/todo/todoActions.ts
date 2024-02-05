@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO, DELETE_TODO } from "./todoTypes";
+import { ADD_TODO, EDIT_TODO, DELETE_TODO, TOGGLE_TODO } from "./todoTypes";
 import { TodosTypes } from "../../components/Todos";
 
 export const addTodo = (todo: TodosTypes) => {
@@ -22,4 +22,11 @@ export const editTodo = (todo: TodosTypes) => {
     };
   }
 
+  export const toggleTodo = (id: number) => {
+    return {
+      type: TOGGLE_TODO,
+      payload: {id},
+
+    }
+  }
   

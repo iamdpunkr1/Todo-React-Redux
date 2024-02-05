@@ -5,7 +5,8 @@ import { connect } from "react-redux"
 
 export type TodosTypes = {
   id: number,
-  value: string
+  value: string,
+  completed: boolean,
 }
 
 type TodosProps = {
