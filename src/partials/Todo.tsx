@@ -11,7 +11,8 @@ type TodoProps = {
 }
 
 const Todo = ({todo}: TodoProps) => {
-  const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<string>('');
+  const [status, setStatus] = useState<string>('');
   const [modal, setModal] = useState<boolean>(false);
   const dispatch = useDispatch();
 
@@ -19,12 +20,12 @@ const Todo = ({todo}: TodoProps) => {
     // handleEditTodo (todo.id, value)
     if(value.trim() === '') return
 
-    if (value === todo.value) {
+    if (value === todo.value && status === "completed" && todo.completed) {
       setModal(!modal)
       return
     }
 
-    dispatch (editTodo ({id: todo.id, value, completed: todo.completed}))
+    dispatch (editTodo ({id: todo.id, value, completed: status === "completed" ? true : false}))
     setModal(!modal)
   }
 
@@ -53,7 +54,7 @@ const Todo = ({todo}: TodoProps) => {
                 <div className="flex gap-2">
                 
                     {/* //Edit Button */}
-                    <button data-tooltip-id="my-tooltip" data-tooltip-content="Edit Todo" onClick={() => { setValue(todo.value); setModal(!modal)}}
+                    <button data-tooltip-id="my-tooltip" data-tooltip-content="Edit Todo" onClick={() => { setValue(todo.value); setStatus(todo.completed? "completed" : "incomplete"); setModal(!modal)}}
                     className="px-2 py-1 bg-indigo-800 hover:bg-indigo-900 rounded-md hover:scale-110 transition-all 0.5s ease-in-out">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                        <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -156,8 +157,8 @@ const Todo = ({todo}: TodoProps) => {
                           <div className="text-slate-800 font-medium">Status:</div>
                           <select
                             id="completed"
-                            onChange={handleCompleted}
-                            value={todo.completed ? 'completed' : 'incomplete'}
+                            onChange={(e) => {setStatus(e.target.value); console.log(status);}}
+                            value={status}
                             className="border border-gray-300 rounded-md p-2 text-slate-700 px-2"
                           >
                             <option value="incomplete">Incomplete</option>
