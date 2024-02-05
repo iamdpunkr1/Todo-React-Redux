@@ -53,7 +53,7 @@ const Todos = ({todos}:TodosProps) => {
             
             {/* Filter Todo */}
             {todos.length > 0 && 
-            
+            <>
             <select value={filter}
                     onChange={(e) => setFilter(e.target.value)}
                     className="w-3/5 md:w-2/5 lg:1/4 px-4 py-2
@@ -63,8 +63,11 @@ const Todos = ({todos}:TodosProps) => {
               <option value="Completed">Completed</option>
               <option value="Uncompleted">Uncompleted</option>
             </select>
-            }
+            
             {filteredTodos.length === 0 && <p className="text-slate-800 text-xl py-8 font-bold">No Todo Found</p>}
+            </>
+            }
+            
             {filteredTodos.map((todo) => (
               <Todo 
                     // handleDeleteTodo={handleDeleteTodo}
