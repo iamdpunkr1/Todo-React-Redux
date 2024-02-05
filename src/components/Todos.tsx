@@ -1,7 +1,7 @@
 import TodoInput from "../partials/TodoInput"
 import Todo from "../partials/Todo"
 import { connect } from "react-redux"
-// import { addTodo, deleteTodo, editTodo } from "../redux/todo/todoActions"
+
 
 export type TodosTypes = {
   id: number,
@@ -14,7 +14,6 @@ type TodosProps = {
 }
 
 const Todos = ({todos}:TodosProps) => {
-
 
   // const handleAddTodo = (val: TodosTypes) => {
   //   // setTodos(prev => [...prev, {id: val.id, value: val.value}])
