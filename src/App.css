@@ -22,6 +22,8 @@
 }
 
 
-
+option:hover {
+  background-color: indigo !important; /* Or any desired color */
+}
 
 

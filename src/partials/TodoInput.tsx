@@ -19,7 +19,7 @@ const TodoInput = () => {
   }
 
   return (
-    <div className="flex flex-col md:lg:flex-row items-center justify-center gap-4 py-4 my-4">
+    <div className="flex flex-col md:lg:flex-row items-center justify-center gap-4 py-4 mt-4">
             <input type="text"
                    value={value}
                    onChange={(e) => setValue(e.target.value)}

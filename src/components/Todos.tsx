@@ -1,6 +1,7 @@
 import TodoInput from "../partials/TodoInput"
 import Todo from "../partials/Todo"
 import { connect } from "react-redux"
+import { useMemo, useState } from "react"
 
 
 export type TodosTypes = {
@@ -28,6 +29,19 @@ const Todos = ({todos}:TodosProps) => {
   // const handleEditTodo = (id:number, value:string) => {
   //   dispatch(editTodo({id, value}))
   // }
+  const [filter, setFilter] = useState<string>('All')
+
+  const filteredTodos = useMemo(() => {
+    
+    switch (filter) {
+      case 'Completed':
+        return todos.filter(todo => todo.completed)
+      case 'Uncompleted':
+        return todos.filter(todo => !todo.completed)
+      default:
+        return todos
+    }
+  },[filter, todos])
 
   return (
     <div className="w-full text-center bg-indigo-100 py-16 px-2 md:lg:px-8 min-h-1/2 rounded-md">
@@ -37,7 +51,18 @@ const Todos = ({todos}:TodosProps) => {
           <TodoInput />
           <div className="flex mx-auto flex-col gap-2">
             
-            {todos.map((todo) => (
+            {/* Filter Todo */}
+            <select value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                    className="w-3/5 md:w-2/5 lg:1/4 px-4 py-2
+                              
+                              border border-gray-300 rounded-md text-slate-600 font-medium">
+              <option value="All" className="hover:bg-indigo-500">All</option>
+              <option value="Completed">Completed</option>
+              <option value="Uncompleted">Uncompleted</option>
+            </select>
+
+            {filteredTodos.map((todo) => (
               <Todo 
                     // handleDeleteTodo={handleDeleteTodo}
                     // handleEditTodo={handleEditTodo}
