@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { TodosTypes } from "../components/Todos"
-import { editTodo, deleteTodo } from "../redux/todo/todoActions"
+import { editTodo, deleteTodo, toggleTodo } from "../redux/todo/todoActions"
 import { useDispatch } from "react-redux"
 import { Tooltip } from "react-tooltip"
 
@@ -21,15 +21,22 @@ const Todo = ({todo}: TodoProps) => {
     setIsEdit(!isEdit)
   }
 
+  const handleCompleted = () => {
+    dispatch(toggleTodo (todo.id))
+  }
+
   return (
     <div className="flex justify-between items-center px-4 md:px-6 lg:px-8 items-center bg-indigo-500 text-white py-3 rounded-md">
+
+                <input onChange={handleCompleted} type="checkbox" className="form-checkbox h-4 w-4 text-indigo-600 cursor-pointer" />
+
                 {isEdit ?
                 <input type="text"
                        value={value}
                        onChange={(e) => setValue(e.target.value)}
-                       className="text-slate-700 w-5/6 px-4 py-1 border border-gray-300 rounded-md" />
+                       className="text-slate-700 w-4/6 px-4 py-1 border border-gray-300 rounded-md" />
                 :
-                <span>{todo.value}</span>
+                <span className={`text-white  ${todo.completed? "text-slate-200 line-through":""}`}>{todo.value}</span>
                 }
                 
 
